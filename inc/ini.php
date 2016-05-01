@@ -18,8 +18,8 @@ require_once 'libs/Smarty.class.php';
 
 $smarty = new Smarty();
 
-$smarty->setTemplateDir('tpls')//APP_ROOT.
-->setCompileDir('tpls_c');
+$smarty->setTemplateDir('views/tpls')//APP_ROOT.
+->setCompileDir('views/tpls_c');
 
 $smarty->auto_literal = false;//设置空格有效
 

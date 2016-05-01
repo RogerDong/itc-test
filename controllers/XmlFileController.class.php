@@ -34,7 +34,9 @@ class XmlFileController
                 echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
                 echo "Stored in: " . $_FILES["file"]["tmp_name"];
                 $xmlParser = new XmlParser();
-                var_dump($xmlParser->xmlToProductArray($_FILES['file']['tmp_name']));
+                $products = $xmlParser->xmlToProductArray($_FILES['file']['tmp_name']);
+                $productDao = new ProductDao();
+                $productDao->addEntries($products);
             }
         }
 

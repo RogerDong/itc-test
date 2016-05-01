@@ -10,6 +10,7 @@ class XmlParser
 {
     function xmlToProductArray($filename){
         $xml = simplexml_load_file($filename);
+
         $products = array(array());
         $i = 0;
         foreach ($xml as $item1){
