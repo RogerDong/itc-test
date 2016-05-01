@@ -23,7 +23,7 @@ class XmlFileController
         }
         else{
             var_dump($_FILES);
-            if ($_FILES["file"]["error"] > 0)
+            if ($_FILES["file"]["error"] > 0 || $_FILES["file"]["type"] != "text/xml" )
             {
                 echo "Error: " . $_FILES["file"]["error"] . "<br />";
             }

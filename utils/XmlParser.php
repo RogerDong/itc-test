@@ -14,7 +14,7 @@ class XmlParser
         $i = 0;
         foreach ($xml as $item1){
             foreach ($item1 as $item2){
-                $products[$i][$item2->getName()] = $item2;
+                $products[$i][$item2->getName()] = (string)$item2;
             }
             $i++;
         }
