@@ -10,17 +10,25 @@ class Core
 {
 
     private $mongoClient;
-    protected $db;
+    private $db;
     protected $collection;
+    protected $error;
     /**
      * Core constructor.
      */
     public function __construct($collectionName)
     {
         $dbName = Config::$DBName;
-        $this->mongoClient = new MongoClient();
-        $this->db = $this->mongoClient->$dbName;
-        $this->collection = $this->db->$collectionName;
+        try{
+            $this->mongoClient = new MongoClient();
+            $this->db = $this->mongoClient->$dbName;
+            $this->collection = $this->db->$collectionName;
+        }
+        catch (MongoConnectionException $e)
+        {
+            $this->error = $e->getMessage();
+        }
+
 
     }
 }

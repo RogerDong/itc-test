@@ -12,11 +12,22 @@ class ProductDao extends Core
     {
         parent::__construct("products");
     }
-    public function addEntries($documents){
-
-        var_dump($documents);
+    public function addProducts($documents){
         foreach ($documents as $document){
             $this->collection->insert($document);
         }
+    }
+    public function getAllProducts(){
+        $cursor = $this->collection->find();
+        $products = array(array());
+        $i = 0;
+        foreach ($cursor as $key => $document){
+
+            foreach ($document as $key => $value){
+                $products[$i][$key] = $value;
+            }
+            $i++;
+        }
+        return $products;
     }
 }

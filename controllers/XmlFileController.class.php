@@ -17,11 +17,17 @@ class XmlFileController
         $this->smarty = $smarty;
     }
 
-    function upload(){
-        if($_SERVER['REQUEST_METHOD'] == "GET"){
+    function upload()
+    {
+        $productDao = new ProductDao();
+        $products = $productDao->getAllProducts();
+        $this->smarty->assign("products", $products);
+        if($_SERVER['REQUEST_METHOD'] == "GET")
+        {
             $this->smarty->display("upload.tpl.html");
         }
-        else{
+        else
+        {
             var_dump($_FILES);
             if ($_FILES["file"]["error"] > 0 || $_FILES["file"]["type"] != "text/xml" )
             {
@@ -36,9 +42,8 @@ class XmlFileController
                 $xmlParser = new XmlParser();
                 $products = $xmlParser->xmlToProductArray($_FILES['file']['tmp_name']);
                 $productDao = new ProductDao();
-                $productDao->addEntries($products);
+                $productDao->addProducts($products);
             }
         }
-
     }
 }
