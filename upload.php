@@ -7,5 +7,5 @@
  */
 require_once "include.php";
 
-$xmlFileController = new XmlFileController($smarty);
+$xmlFileController = new ProductsController($smarty);
 $xmlFileController->upload();

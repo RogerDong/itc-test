@@ -13,10 +13,6 @@ $files = glob('./dao/*.{php}', GLOB_BRACE);
 foreach($files as $file) {
     require($file);
 }
-$files = glob('./models/*.{php}', GLOB_BRACE);
-foreach($files as $file) {
-    require($file);
-}
 $files = glob('./controllers/*.{php}', GLOB_BRACE);
 foreach($files as $file) {
     require($file);

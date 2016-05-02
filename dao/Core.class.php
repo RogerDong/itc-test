@@ -20,7 +20,7 @@ class Core
     {
         $dbName = Config::$DBName;
         try{
-            $this->mongoClient = new MongoClient();
+            $this->mongoClient = new MongoClient(Config::$DBServer);
             $this->db = $this->mongoClient->$dbName;
             $this->collection = $this->db->$collectionName;
         }

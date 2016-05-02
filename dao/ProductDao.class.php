@@ -22,12 +22,28 @@ class ProductDao extends Core
         $products = array(array());
         $i = 0;
         foreach ($cursor as $key => $document){
-
             foreach ($document as $key => $value){
-                $products[$i][$key] = $value;
+                if($key == '_id'){
+                    $products[$i][$key] = $value->{'$id'};
+                }
+                else
+                {
+                    $products[$i][$key] = $value;
+                }
             }
             $i++;
         }
+        if($i == 0){
+            $products = null;
+        }
         return $products;
+    }
+    public function modifyOneEntry($where, $document){
+        $update = $this->collection->update($where, $document);
+        return $update;
+    }
+    public function removeOneEntryByMongoId($id){
+        $where = array('_id' => new MongoId($id));
+        $this->collection->remove($where);
     }
 }
