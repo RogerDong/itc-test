@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-05-02 23:42:05
+/* Smarty version 3.1.29, created on 2016-05-03 10:53:44
   from "/var/www/html/itc-test-roger/views/tpls/upload.tpl.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5727754d8b4377_86165337',
+  'unifunc' => 'content_572812b8cede29_65165831',
   'file_dependency' => 
   array (
     '808f7dca3af962ef310f4127d118cfedf7143228' => 
     array (
       0 => '/var/www/html/itc-test-roger/views/tpls/upload.tpl.html',
-      1 => 1462203589,
+      1 => 1462244016,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5727754d8b4377_86165337 ($_smarty_tpl) {
+function content_572812b8cede29_65165831 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,17 +44,20 @@ function content_5727754d8b4377_86165337 ($_smarty_tpl) {
 <body>
 
 <div class="container">
-    <div>
-        <p class="text-danger"><?php echo (($tmp = @$_smarty_tpl->tpl_vars['message']->value)===null||$tmp==='' ? '' : $tmp);?>
-</p>
 
-    </div>
 
-    <form class="form-inline " action="./upload.php" method="post" enctype="multipart/form-data">
+    <form class="form-inline col-lg-8 col-lg-offset-2" action="./upload.php" method="post" enctype="multipart/form-data">
+
+        <p>Choose a file:</p>
         <div  class="form-group">
             <input type="file"  name="file" id="file">
         </div>
         <button class="btn btn-default form-control" type="submit">Upload</button>
+        <div>
+            <p class="text-danger"><?php echo (($tmp = @$_smarty_tpl->tpl_vars['message']->value)===null||$tmp==='' ? '' : $tmp);?>
+</p>
+
+        </div>
     </form>
     <div class="col-lg-12">
         <table class="table">
@@ -70,7 +73,7 @@ function content_5727754d8b4377_86165337 ($_smarty_tpl) {
                 <th>action</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="products">
             <?php
 $_from = $_smarty_tpl->tpl_vars['products']->value;
 if (!is_array($_from) && !is_object($_from)) {
@@ -133,7 +136,9 @@ $__foreach_item_0_saved_local_item = $_smarty_tpl->tpl_vars['item'];
 " class="col-lg-12 edit_text" value='<?php echo (($tmp = @$_smarty_tpl->tpl_vars['item']->value['availability'])===null||$tmp==='' ? '' : $tmp);?>
 ' style="display: none;">
                 </td>
-                <td class="col-lg-1"><button class="btn-sm btn btn-default delete_button" >delete</button></td>
+                <td class="col-lg-1">
+                    <button class="btn-sm btn btn-default delete_button" >Delete</button>
+                </td>
             </tr>
             <?php
 $_smarty_tpl->tpl_vars['item'] = $__foreach_item_0_saved_local_item;
@@ -142,8 +147,40 @@ if ($__foreach_item_0_saved_item) {
 $_smarty_tpl->tpl_vars['item'] = $__foreach_item_0_saved_item;
 }
 ?>
+            <tr  class="edit_tr add_product" style="display: none;">
+                <td class="col-lg-2">
+                    <span class="text" style="display: inline;"></span>
+                    <input  class="col-lg-12 edit_text" value='' style="display: none;">
+                </td>
+                <td class="col-lg-2">
+                    <span  class="text" style="display: inline;"></span>
+                    <input  class="col-lg-12 edit_text" value='' style="display: none;">
+                </td>
+                <td class="col-lg-2">
+                    <span class="text" style="display: inline;"></span>
+                    <input class="col-lg-12 edit_text" value='' style="display: none;">
+                </td>
+                <td class="col-lg-2">
+                    <span class="text" style="display: inline;"></span>
+                    <input class="col-lg-12 edit_text" value='' style="display: none;">
+                </td>
+                <td class="col-lg-2">
+                    <span class="text" style="display: inline;"></span>
+                    <input class="col-lg-12 edit_text" value='' style="display: none;">
+                </td>
+                <td class="col-lg-1">
+                    <span class="text" style="display: inline;"></span>
+                    <input class="col-lg-12 edit_text" value='' style="display: none;">
+                </td>
+                <td class="col-lg-1">
+                    <button class="btn-sm btn btn-default delete_button" >Delete</button>
+                </td>
+            </tr>
             </tbody>
         </table>
+        <div>
+            <button class="add_button btn-md btn btn-default delete_button">Add</button>
+        </div>
     </div>
 
 </div>

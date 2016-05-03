@@ -11,7 +11,7 @@ require_once "include.php";
 
 $productDao = new ProductDao();
 
-$productDao->removeOneEntryByMongoId("572772aadb3deca9228b456e");
+var_dump($productDao->addOneProduct(array()));
 
 
 //$smarty->assign("name","zhangsan");

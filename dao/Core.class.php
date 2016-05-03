@@ -6,6 +6,10 @@
  * Date: 16-5-1
  * Time: 下午9:20
  */
+
+/*
+ * Base class to connect to MongoDB
+ */
 class Core
 {
 
@@ -13,13 +17,16 @@ class Core
     private $db;
     protected $collection;
     protected $error;
+
     /**
-     * Core constructor.
+     * Core constructor. Connect to MongoDB
+     * @param $collectionName
      */
     public function __construct($collectionName)
     {
         $dbName = Config::$DBName;
-        try{
+        try
+        {
             $this->mongoClient = new MongoClient(Config::$DBServer);
             $this->db = $this->mongoClient->$dbName;
             $this->collection = $this->db->$collectionName;
