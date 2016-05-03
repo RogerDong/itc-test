@@ -5,49 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link>
+
 
     <title>Upload File</title>
 
+
+    <script>
+
+    </script>
 </head>
 
 <body>
 
 <div class="container">
-    <form class="form-inline " action="./upload.php" method="post" enctype="multipart/form-data">
+
+
+    <form class="form-inline col-lg-8 col-lg-offset-2" action="./upload.php" method="post" enctype="multipart/form-data">
+
+        <p>Choose a file:</p>
         <div  class="form-group">
-            <input type="file" name="file" id="file">
+            <input type="file"  name="file" id="file">
         </div>
-        <button class="btn btn-default right" type="submit">Upload</button>
+        <button class="btn btn-default form-control" type="submit">Upload</button>
+        <div>
+            <p class="text-danger"><{$message|default:""}></p>
+
+        </div>
     </form>
-    <table class="table">
-        <caption>Products</caption>
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>sku</th>
-            <th>ean</th>
-            <th>name</th>
-            <th>stock</th>
-            <th>availability</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Tanmay</td>
-            <td>Bangalore</td>
-        </tr>
-        <{foreach from=$products item=item}>
-        <tr>
-            <td><{$item.id}></td>
-            <td><{$item.sku}></td>
-            <td><{$item.ean|default:""}></td>
-            <td><{$item.name}></td>
-            <td><{$item.stock}></td>
-            <td><{$item.availability}></td>
-            <td><{/foreach}></td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="col-lg-12">
+        <table class="table">
+            <caption>Products</caption>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>sku</th>
+                <th>ean</th>
+                <th>name</th>
+                <th>stock</th>
+                <th>availability</th>
+                <th>action</th>
+            </tr>
+            </thead>
+            <tbody id="products">
+            <{foreach from=$products item=item}>
+            <tr id="<{$item._id}>" class="edit_tr">
+                <td class="col-lg-2">
+                    <span id="id_<{$item._id}>" class="text" style="display: inline;"><{$item.id|default:""}></span>
+                    <input id="id_input_<{$item._id}>" class="col-lg-12 edit_text" value='<{$item.id|default:""}>' style="display: none;">
+                </td>
+                <td class="col-lg-2">
+                    <span id="sku_<{$item._id}>" class="text" style="display: inline;"><{$item.sku|default:""}></span>
+                    <input id="sku_input_<{$item._id}>" class="col-lg-12 edit_text" value='<{$item.sku|default:""}>' style="display: none;">
+                </td>
+                <td class="col-lg-2">
+                    <span id="ean_<{$item._id}>" class="text" style="display: inline;"><{$item.ean|default:""}></span>
+                    <input id="ean_input_<{$item._id}>" class="col-lg-12 edit_text" value='<{$item.ean|default:""}>' style="display: none;">
+                </td>
+                <td class="col-lg-2">
+                    <span id="name_<{$item._id}>" class="text" style="display: inline;"><{$item.name|default:""}></span>
+                    <input id="name_input_<{$item._id}>" class="col-lg-12 edit_text" value='<{$item.name|default:""}>' style="display: none;">
+                </td>
+                <td class="col-lg-2">
+                    <span id="stock_<{$item._id}>" class="text" style="display: inline;"><{$item.stock|default:""}></span>
+                    <input id="stock_input_<{$item._id}>" class="col-lg-12 edit_text" value='<{$item.stock|default:""}>' style="display: none;">
+                </td>
+                <td class="col-lg-1">
+                    <span id="availability_<{$item._id}>" class="text" style="display: inline;"><{$item.availability|default:""}></span>
+                    <input id="availability_input_<{$item._id}>" class="col-lg-12 edit_text" value='<{$item.availability|default:""}>' style="display: none;">
+                </td>
+                <td class="col-lg-1">
+                    <button class="btn-sm btn btn-default delete_button" >Delete</button>
+                </td>
+            </tr>
+            <{/foreach}>
+            <tr  class="edit_tr add_product" style="display: none;">
+                <td class="col-lg-2">
+                    <span class="text" style="display: inline;"></span>
+                    <input  class="col-lg-12 edit_text" value='' style="display: none;">
+                </td>
+                <td class="col-lg-2">
+                    <span  class="text" style="display: inline;"></span>
+                    <input  class="col-lg-12 edit_text" value='' style="display: none;">
+                </td>
+                <td class="col-lg-2">
+                    <span class="text" style="display: inline;"></span>
+                    <input class="col-lg-12 edit_text" value='' style="display: none;">
+                </td>
+                <td class="col-lg-2">
+                    <span class="text" style="display: inline;"></span>
+                    <input class="col-lg-12 edit_text" value='' style="display: none;">
+                </td>
+                <td class="col-lg-2">
+                    <span class="text" style="display: inline;"></span>
+                    <input class="col-lg-12 edit_text" value='' style="display: none;">
+                </td>
+                <td class="col-lg-1">
+                    <span class="text" style="display: inline;"></span>
+                    <input class="col-lg-12 edit_text" value='' style="display: none;">
+                </td>
+                <td class="col-lg-1">
+                    <button class="btn-sm btn btn-default delete_button" >Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div>
+            <button class="add_button btn-md btn btn-default delete_button">Add</button>
+        </div>
+    </div>
+
 </div>
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/table_ajax.js"></script>
 </body>
+
 </html>

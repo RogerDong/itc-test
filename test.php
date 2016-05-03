@@ -6,14 +6,20 @@
  * Time: 下午2:36
  */
 
-require_once "ini.php";
+require_once "include.php";
 
-$smarty->assign("name","zhangsan");
 
-$array = array("zhangsan","lisi","wangwu");
+$productDao = new ProductDao();
 
-$smarty->assign("names",$array);
+var_dump($productDao->addOneProduct(array()));
 
-$smarty->display("test.tpl.html");
+
+//$smarty->assign("name","zhangsan");
+//
+//$array = array("zhangsan","lisi","wangwu");
+//
+//$smarty->assign("names",$array);
+//
+//$smarty->display("test.tpl.html");
 
 

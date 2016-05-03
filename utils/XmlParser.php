@@ -6,8 +6,17 @@
  * Date: 16-5-1
  * Time: 下午4:23
  */
+
+/*
+ * Util for XML file parser
+ */
 class XmlParser
 {
+    /**
+     * parse xml file to array
+     * @param $filename
+     * @return array
+     */
     function xmlToProductArray($filename){
         $xml = simplexml_load_file($filename);
 
