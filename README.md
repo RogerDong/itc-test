@@ -1,3 +1,12 @@
+# How to Run Application
+- Start web server and MongoDB
+- Install the MongoDB PHP driver as given by you(add mongo.so to your config file)
+- Change the MongoDB setting in the inc/Config.class.php file if you have authentication for the MongoDB.
+- Access the index page depend on your configuration.
+
+If you have any problem running my test project, contact me through my email.
+
+
 # IT Consultis Backend Test
 
 ## How to run the app 
