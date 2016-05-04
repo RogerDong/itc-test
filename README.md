@@ -4,6 +4,11 @@
 - Change the MongoDB setting in the inc/Config.class.php file if you have authentication for the MongoDB.
 - Access the index page depend on your configuration.
 
+# Libaries used
+- Smarty template engine
+- Bootstrap
+- JQuery
+
 If you have any problem running my test project, contact me through my email.
 
 
