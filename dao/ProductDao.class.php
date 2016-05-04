@@ -28,7 +28,15 @@ class ProductDao extends Core
     {
         foreach ($documents as $document)
         {
-            $this->collection->insert($document);
+            try
+            {
+                $this->collection->insert($document);
+            }
+            catch (MongoException $e)
+            {
+                $this->error = $e->getMessage();
+            }
+
         }
     }
 
@@ -84,7 +92,15 @@ class ProductDao extends Core
      */
     public function modifyOneEntry($where, $document)
     {
-        $update = $this->collection->update($where, $document);
+        $update = null;
+        try
+        {
+            $update = $this->collection->update($where, $document);
+        }
+        catch (MongoCursorException $e)
+        {
+            $this->error = $e->getMessage();
+        }
         return $update;
     }
 
@@ -95,6 +111,13 @@ class ProductDao extends Core
     public function removeOneEntryByMongoId($id)
     {
         $where = array('_id' => new MongoId($id));
-        $this->collection->remove($where);
+        try
+        {
+            $this->collection->remove($where);
+        }
+        catch (MongoException $e)
+        {
+            $this->error = $e->getMessage();
+        }
     }
 }

@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-05-03 10:53:44
+/* Smarty version 3.1.29, created on 2016-05-04 15:59:44
   from "/var/www/html/itc-test-roger/views/tpls/upload.tpl.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_572812b8cede29_65165831',
+  'unifunc' => 'content_5729abf0067b53_36131858',
   'file_dependency' => 
   array (
     '808f7dca3af962ef310f4127d118cfedf7143228' => 
     array (
       0 => '/var/www/html/itc-test-roger/views/tpls/upload.tpl.html',
-      1 => 1462244016,
+      1 => 1462348775,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_572812b8cede29_65165831 ($_smarty_tpl) {
+function content_5729abf0067b53_36131858 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,18 +27,11 @@ function content_572812b8cede29_65165831 ($_smarty_tpl) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap core CSS -->
+    <base href="/itc-test-roger/" />
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link>
-
-
     <title>Upload File</title>
 
-
-    <?php echo '<script'; ?>
->
-
-    <?php echo '</script'; ?>
->
 </head>
 
 <body>
@@ -46,7 +39,7 @@ function content_572812b8cede29_65165831 ($_smarty_tpl) {
 <div class="container">
 
 
-    <form class="form-inline col-lg-8 col-lg-offset-2" action="./upload.php" method="post" enctype="multipart/form-data">
+    <form class="form-inline col-lg-8 col-lg-offset-2" action="./index.php" method="post" enctype="multipart/form-data">
 
         <p>Choose a file:</p>
         <div  class="form-group">

@@ -23,7 +23,7 @@ class ProductsController
     }
 
     /**
-     *Show man page and get upload file
+     *Show main page and get upload file
      */
     function upload()
     {
